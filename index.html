@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Become the Fourth Wise Person!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -231,6 +231,7 @@
             z-index: 1000;
             background: rgba(0,0,0,0.2);
             padding: 15px 20px;
+            padding-bottom: max(15px, env(safe-area-inset-bottom));
             border-radius: 0;
             backdrop-filter: blur(15px);
             justify-content: center;
@@ -282,6 +283,7 @@
                 height: 70px;
                 gap: 15px;
                 padding: 12px 15px;
+                padding-bottom: max(12px, env(safe-area-inset-bottom));
             }
             
             .nav-btn {
@@ -301,6 +303,7 @@
                 height: 60px;
                 gap: 10px;
                 padding: 10px 12px;
+                padding-bottom: max(10px, env(safe-area-inset-bottom));
             }
             
             .nav-btn {
