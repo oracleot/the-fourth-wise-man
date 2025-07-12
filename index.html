@@ -15,19 +15,24 @@
             background: linear-gradient(135deg, #4a90e2 0%, #7b68ee 100%);
             color: white;
             overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         .slide {
             display: none;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            flex: 1;
             padding: 40px;
             box-sizing: border-box;
             text-align: center;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             position: relative;
+            overflow-y: auto;
+            min-height: 0;
         }
         
         .slide.active {
@@ -217,12 +222,18 @@
         }
         
         .navigation {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            height: 80px;
             display: flex;
             gap: 20px;
+            z-index: 1000;
+            background: rgba(0,0,0,0.2);
+            padding: 15px 20px;
+            border-radius: 0;
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
         }
         
         .nav-btn {
@@ -250,21 +261,25 @@
         }
         
         .slide-counter {
-            position: fixed;
-            top: 30px;
-            right: 30px;
+            position: relative;
+            height: 60px;
             background: rgba(255,255,255,0.3);
-            padding: 10px 20px;
-            border-radius: 50px;
+            padding: 15px 20px;
+            border-radius: 0;
             font-size: 1.2rem;
             backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-shrink: 0;
         }
         
         /* Mobile Responsive Styles for Navigation */
         @media (max-width: 768px) {
             .navigation {
-                bottom: 20px;
+                height: 70px;
                 gap: 15px;
+                padding: 12px 15px;
             }
             
             .nav-btn {
@@ -273,17 +288,17 @@
             }
             
             .slide-counter {
-                top: 20px;
-                right: 20px;
-                padding: 8px 15px;
+                height: 50px;
+                padding: 12px 15px;
                 font-size: 1rem;
             }
         }
         
         @media (max-width: 480px) {
             .navigation {
-                bottom: 15px;
+                height: 60px;
                 gap: 10px;
+                padding: 10px 12px;
             }
             
             .nav-btn {
@@ -292,9 +307,8 @@
             }
             
             .slide-counter {
-                top: 15px;
-                right: 15px;
-                padding: 6px 12px;
+                height: 45px;
+                padding: 10px 12px;
                 font-size: 0.9rem;
             }
         }
@@ -449,8 +463,10 @@
 </head>
 <body>
     <div class="stars" id="stars"></div>
+    
+    <!-- Header -->
     <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+        <span id="current-slide">1</span> / <span id="total-slides">10</span>
     </div>
 
     <!-- Slide 1: Welcome -->
@@ -597,6 +613,7 @@
         <p><strong>Let your journey of wisdom begin!</strong></p>
     </div>
 
+    <!-- Footer Navigation -->
     <div class="navigation">
         <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
         <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
